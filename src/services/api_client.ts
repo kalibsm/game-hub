@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import { GameQuery } from '../App'
 
 
@@ -21,14 +21,9 @@ class ApiClient<T> {
         this.endpoint = endpoint
     }
 
-    getAll = (gameQuery?: GameQuery) => {
+    getAll = (config: AxiosRequestConfig ) => {
         return axiosInstance
-        .get<fetchResponse<T>>(this.endpoint,{params:
-            { genres:gameQuery?.genre?.id ,
-              parent_platforms:gameQuery?.platform?.id,
-              ordering:gameQuery?.SortOrder,
-              search:gameQuery?.searchText
-            }})
+        .get<fetchResponse<T>>(this.endpoint , config)
         .then(res => res.data.results)
     }
 }
