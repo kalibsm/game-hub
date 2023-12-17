@@ -11,6 +11,7 @@ export const axiosInstance = axios.create({
 
 export interface fetchResponse<T>{
     count: number,
+    next: string | null,
     results : T[]
 }
 
@@ -24,7 +25,7 @@ class ApiClient<T> {
     getAll = (config: AxiosRequestConfig ) => {
         return axiosInstance
         .get<fetchResponse<T>>(this.endpoint , config)
-        .then(res => res.data.results)
+        .then(res => res.data)
     }
 }
 
