@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { GameQuery } from '../App'
 
 
 export const axiosInstance = axios.create({
