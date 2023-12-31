@@ -1,4 +1,4 @@
-import { Box, GridItem, HStack, Heading, Show } from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack, Heading, Show } from "@chakra-ui/react";
 import GameGrid from "../components/GameGrid";
 import GameHeading from "../components/GameHeading";
 import GenreList from "../components/GenreList";
@@ -7,7 +7,16 @@ import SortSelector from "../components/SortSelector";
 
 const HomePage = () => {
   return (
-    <>
+    <Grid
+      templateAreas={{
+        base: `"main"`, //mobile && ipad version
+        lg: `"aside main"`, //1024
+      }}
+      templateColumns={{
+        base: "1fr",
+        lg: "200px  1fr",
+      }}
+    >
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <Heading fontSize="2xl" marginBottom={3}>
@@ -26,7 +35,7 @@ const HomePage = () => {
         </Box>
         <GameGrid />
       </GridItem>
-    </>
+    </Grid>
   );
 };
 
