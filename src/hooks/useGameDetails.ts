@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import GameDetailService, { GameDetails } from "../services/GameDetailService";
+import GameDetailService from "../services/GameDetailService";
+import { Game } from "../services/GameService";
 
 const useGameDetails = (slug : string) => {
-    return useQuery<GameDetails ,Error>({
+    return useQuery<Game ,Error>({
         queryKey: ['games' , slug ],
         queryFn: () => GameDetailService.getByID(slug)
     })
