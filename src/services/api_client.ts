@@ -33,11 +33,7 @@ class ApiClient<T> {
             .then(res => res.data);
     }
 
-    getElement = (id : number) => {
-        return axiosInstance 
-            .get<fetchResponse<T>>(this.endpoint + '/' + id + '/movies')
-            .then(res => res.data)
-    }
+    
 }
 
 export default ApiClient;

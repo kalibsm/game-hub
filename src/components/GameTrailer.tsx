@@ -11,7 +11,9 @@ const GameTrailer = ({ gameId }: Prop) => {
 
   if (isLoading) return <Spinner />;
 
-  if (error || !first) throw error;
+  if (error) throw error;
+
+  if (!first) return null;
 
   return <video src={first.data[480]} poster={first.preview} controls />;
 };
