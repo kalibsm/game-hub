@@ -1,4 +1,4 @@
-import { Publisher } from "../entities/Publisher";
+import  Publisher  from "../entities/Publisher";
 import ApiClient from "./api_client";
 import { Genre } from "./genreService";
 import { Platform } from "./platformService";
